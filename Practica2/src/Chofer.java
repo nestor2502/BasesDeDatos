@@ -26,4 +26,8 @@ public class Chofer extends Persona{
 	public Chofer(String nombre, String direccion, String correo, int num_celular, int num_licencia, String fecha_ingreso){
 		super( nombre,  direccion,  correo,  num_celular,  num_licencia,  fecha_ingreso);
 	}
+
+	public Chofer(){
+		super();
+	}
 }
