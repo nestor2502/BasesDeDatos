@@ -16,7 +16,7 @@ public class ArchivoTaxi extends ManipulaArchivo {
 	}
 
 	/**
-	 * Prepara un arreglo de model.Taxi para que pueda ser guardado
+	 * Prepara un arreglo de Taxi para que pueda ser guardado
 	 * 
 	 * @param taxi
 	 *            los taxis que se desean guardar
@@ -31,7 +31,7 @@ public class ArchivoTaxi extends ManipulaArchivo {
  
 	/**
 	 * Convierte un arreglo de String a un arreglo de taxis
-	 * @return arreglo de model.Taxi con los datos del archivo
+	 * @return arreglo de Taxi con los datos del archivo
 	 * @throws ArchivoLecturaNoCreadoException
 	 */
 	public Taxi[] leeTaxis() throws ArchivoLecturaNoCreadoException {
@@ -46,18 +46,20 @@ public class ArchivoTaxi extends ManipulaArchivo {
 	}
 
 	/**
-	 * Recibe una cadena y parsea los datos para crear el objeto model.Taxi
+	 * Recibe una cadena y parsea los datos para crear el objeto Taxi
 	 * @param cadenaTaxi la cadena a parsear 
 	 * @return el objeto con los datos de la cadena
 	 */
 	private Taxi parseaTaxi(String cadenaTaxi) {
 		String linea[] = cadenaTaxi.trim().split(",");
-		String nombre = linea[0];
-		int edad = Integer.parseInt(linea[1]);
-		char sexo = linea[2].charAt(0);
-		int idTaxi = Integer.parseInt(linea[3]);
-		String especialidad = linea[4];
-		return new Taxi(nombre, edad, sexo, idTaxi,especialidad,null);
+        String placas = linea[0];
+        String marca = linea[1];
+        String modelo = linea[2];
+        int anio = Integer.parseInt(linea[3]);
+        int cilindros = Integer.parseInt(linea[4]);
+        int puertas = Integer.parseInt(linea[5]);
+        boolean tiene_llanta_refaccion = Boolean.parseBoolean(linea[6]);
+		return new Taxi(placas, marca, modelo, anio,cilindros,puertas,tiene_llanta_refaccion);
 	}
 
 }
