@@ -30,6 +30,7 @@ public class Persona{
 		this.direccion = direccion;
 		this.correo = correo;
 		this.num_celular = num_celular;
+		this.num_licencia = num_licencia;
 		this.fecha_ingreso = fecha_ingreso;
 	}
 
@@ -45,19 +46,15 @@ public class Persona{
 		System.out.println("Ingresa nombre:");
 		this.nombre = input.nextLine();
 
-		input = new Scanner(System.in);
+
 		System.out.println("Ingresa direccion:");
 		this.direccion = input.nextLine();
 
-		input = new Scanner(System.in);
+
 		System.out.println("Ingresa Correo:");
 		this.correo = input.nextLine();
 
-		input = new Scanner(System.in);
-		System.out.println("Ingresa nn numero celular");
-		this.num_celular = input.nextInt();
 
-		input = new Scanner(System.in);
 		boolean bandera = true;
 		do {
 			try {

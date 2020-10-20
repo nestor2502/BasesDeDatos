@@ -6,12 +6,7 @@ import java.util.InputMismatchException;
 
 public class Propietario extends Persona{
 
-	private String nombre;
-	private String direccion;
-	private String correo;
-	private int num_celular;
-	private int num_licencia;
-	private String fecha_ingreso;
+
 	private String rfc;
 	private boolean es_chofer;
 
@@ -80,6 +75,11 @@ public class Propietario extends Persona{
 
 	public void setEsChofer(boolean es_chofer){
 		this.es_chofer=es_chofer;
+	}
+
+	@Override
+	public String toString() {
+		return  this.nombre + "," + this.direccion + "," + this.correo + "," + this.num_celular + "," + this.num_licencia + "," + this.fecha_ingreso + "," + this.rfc + "," +this.es_chofer;
 	}
 
 }
