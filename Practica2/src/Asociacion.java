@@ -238,7 +238,7 @@ public class Asociacion{
 	 */
 	public void eliminaPropietario(int i) {
 		if(i >= 0 || i < this.obtenerCantidadPropietario()){
-			this.propietarios.remove(0);
+			this.propietarios.remove(i);
 		}
 	}
 
@@ -248,7 +248,7 @@ public class Asociacion{
 	 */
 	public void eliminaChofer(int i) {
 		if(i >= 0 || i < this.obtenerCantidadChofer()){
-			this.choferes.remove(0);
+			this.choferes.remove(i);
 		}
 	}
 
@@ -258,7 +258,7 @@ public class Asociacion{
 	 */
 	public void eliminaTaxi(int i) {
 		if(i >= 0 || i < this.obtenerCantidadTaxis()){
-			this.taxis.remove(0);
+			this.taxis.remove(i);
 		}
 	}
 

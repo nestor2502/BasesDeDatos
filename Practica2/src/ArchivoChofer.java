@@ -36,8 +36,11 @@ public class ArchivoChofer extends ManipulaArchivo {
 	public void escribeChofer(List<Chofer> chofer) {
 		String lineaChofer = "";
 		for (Chofer m : chofer) {
-			lineaChofer += m + "\n";
+			if(m != null){
+				lineaChofer += m.toString() + "\n";
 		}
+			}
+			
 		super.escribeArchivo(lineaChofer);
 	}
 

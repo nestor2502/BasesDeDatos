@@ -35,7 +35,9 @@ public class ArchivoPropietario extends ManipulaArchivo {
 	public void escribePropietario(List<Propietario> propietario) {
 		String lineaPropietario = "";
 		for (Propietario m : propietario) {
-			lineaPropietario += m.toString() + "\n";
+			if(m != null){
+				lineaPropietario += m.toString() + "\n";
+			}
 		}
 		super.escribeArchivo(lineaPropietario);
 	}

@@ -27,7 +27,10 @@ public class ArchivoTaxi extends ManipulaArchivo {
 	public void escribeTaxi(List<Taxi> taxi) {
 		String lineaTaxi = "";
 		for (Taxi m : taxi) {
-			lineaTaxi += m + "\n";
+			if(m != null){
+				lineaTaxi += m.toString() + "\n";
+			}
+			
 		}
 		super.escribeArchivo(lineaTaxi);
 	}

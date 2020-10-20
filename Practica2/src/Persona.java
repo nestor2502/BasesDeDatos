@@ -2,6 +2,7 @@ package src;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import src.Persona;
 
 /**
 *@author Nestor Vazquez 
@@ -73,7 +74,7 @@ public class Persona{
 			try {
 				input = new Scanner(System.in);
 				System.out.println("Ingresa el numero licencia");
-				this.num_celular = input.nextInt();
+				this.num_licencia = input.nextInt();
 				bandera = false;
 			} catch (InputMismatchException e) {
 				input.next();

@@ -3,12 +3,7 @@ import src.Persona;
 
 public class Chofer extends Persona{
 
-	private String nombre;
-	private String direccion;
-	private String correo;
-	private int num_celular;
-	private int num_licencia;
-	private String fecha_ingreso;
+
 
 	/**
 	*Constructor de la clase persona
