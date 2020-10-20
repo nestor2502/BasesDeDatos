@@ -10,8 +10,7 @@ import java.util.ArrayList;
 
 
 /**
- * repository.ArchivoMedico.java Clase encargada de leer/escribir objetos de la clase
- * model.Medico
+ * a Clase encargada de leer/escribir objetos de la clase
  * 
  * @author Nestor Vazquez
  * @version 1.0

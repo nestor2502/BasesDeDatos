@@ -52,7 +52,7 @@ public class Taxi{
         this.modelo = input.nextLine();
         do {
 			try {
-				System.out.println("Ingresa año:");
+				System.out.println("Ingresa anio:");
 				this.anio = input.nextInt();
 				bandera = false;
 			} catch (InputMismatchException e) {
@@ -62,7 +62,7 @@ public class Taxi{
         } while (bandera);
         do {
 			try {
-				System.out.println("Ingresa número de cilindros:");
+				System.out.println("Ingresa numero de cilindros:");
 				this.cilindros = input.nextInt();
 				bandera = false;
 			} catch (InputMismatchException e) {
@@ -72,7 +72,7 @@ public class Taxi{
         } while (bandera);
         do {
 			try {
-				System.out.println("Ingresa número de puertas:");
+				System.out.println("Ingresa numero de puertas:");
 				this.puertas = input.nextInt();
 				bandera = false;
 			} catch (InputMismatchException e) {
@@ -80,16 +80,19 @@ public class Taxi{
 				bandera = true;
 			}
         } while (bandera);
+        int bander_tem = 0;
         do{
-            System.out.println("¿El taxi tiene llanta de refacción? (S/N) :");
-            if (input.next().charAt(0) == 'S' || input.next().charAt(0) == 's' ){
+            System.out.println("¿El taxi tiene llanta de refaccion? (S/N) :");
+            char x = input.next().charAt(0);
+            if (x == 'S' || x == 's' ){
                 this.tiene_llanta_refaccion = true;
+                bander_tem = 1;
             }
-            else if (input.next().charAt(0) == 'N'|| input.next().charAt(0) == 'n'){
+            else if (x == 'N'|| x == 'n'){
                 this.tiene_llanta_refaccion=false;
+                bander_tem = 1;
             }
-        } while (input.next().charAt(0) != 'S' || input.next().charAt(0) != 's' ||
-        input.next().charAt(0) != 'N' || input.next().charAt(0) != 'n');
+        } while (bander_tem == 0);
     
         input = new Scanner(System.in);
 		bandera = true;

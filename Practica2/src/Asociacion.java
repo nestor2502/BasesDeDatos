@@ -7,13 +7,20 @@ import src.Chofer;
 import src.Taxi;
 import src.Propietario;
 
-
+/**
+*@author Nestor Vazquez
+*
+* */
 public class Asociacion{
 
 	private List<Propietario> propietarios = new ArrayList<Propietario>();
 	private List<Chofer> choferes = new ArrayList<Chofer>();
 	private List<Taxi> taxis= new ArrayList<Taxi>();
 
+	/**
+	*Constructor de la clase, lee los archivos si estan creados
+	*
+	 */
 	public Asociacion(){
 	propietarios = new ArrayList<Propietario>();
 	choferes = new ArrayList<Chofer>();
@@ -46,14 +53,26 @@ public class Asociacion{
 		}
 	}	
 
+	/**
+	*Agrega un propietario a la lista de propietarios
+	*@param propietario
+	*/
 	public void agregaPropietario(Propietario propietario){
 		this.propietarios.add(propietario);
 	}
 
+	/**
+	*Agrega un chofer a la lista de choferes
+	*@param chofer
+	* */
 	public void agregaChofer(Chofer chofer){
 		this.choferes.add(chofer);
 	}
 
+	/**
+	*Agrega un taxi a la lista de taxis
+	*@param taxi
+	* */
 	public void agregaTaxi(Taxi taxi){
 		this.taxis.add(taxi);
 	}
@@ -107,8 +126,8 @@ public class Asociacion{
 	}
 
 	/**
-	 * Muestra los medicos que existen en el hospital
-	 * @returns
+	 * Muestra los propietarios que existen en la asociacion
+	 * @return propietariosString
 	 */
 	public String listadoPropietarios(){
 		String propietariosString = "";
@@ -123,8 +142,8 @@ public class Asociacion{
 	}
 
 	/**
-	 * Muestra los medicos que existen en el hospital
-	 * @returns
+	 * Muestra los choferes que se encuentran en la asociacion
+	 * @return choferesString
 	 */
 	public String listadoChoferes(){
 		String choferesString = "";
@@ -139,8 +158,8 @@ public class Asociacion{
 	}
 
 	/**
-	 * Muestra los medicos que existen en el hospital
-	 * @returns
+	 * Muestra los taxis que se encuentran en la asociacion
+	 * @return
 	 */
 	public String listadoTaxis(){
 		String taxisString = "";
@@ -154,35 +173,59 @@ public class Asociacion{
 		return taxisString;
 	}
 
+	/**
+	*Obtiene los propietarios de la asociuacion
+	*@return propietarios
+	* */
 	public List<Propietario> getPropietarios() {
 		return this.propietarios;
 	}
 
-	
+	/**
+	*Obtiene los choferes de la asociacion
+	*@return choferes
+	 */
 	public List<Chofer> getChoferes() {
 		return this.choferes;
 	}
 
-	
+	/**
+	*Obtiene los taxis de la asociacion	
+	*@return taxis
+	* */
 	public List<Taxi> getTaxis() {
 		return this.taxis;
 	}
 
+	/**
+	*Obtiene un propietario en especifico 
+	*@param i posicion del propietario  
+	*@return propietario
+	* */
 	public Propietario getPropietario(int i) throws IndexOutOfBoundsException{
 		if(i < 0 || i >= this.obtenerCantidadPropietario()){
 			throw new IndexOutOfBoundsException();
 		}
 		return this.propietarios.get(i);
 	}	
-
-		public Chofer getChofer(int i) throws IndexOutOfBoundsException{
+	/**
+	*Obtiene un chofer en especifico
+	*@param i indice del chofer
+	*@return 
+	* */
+	public Chofer getChofer(int i) throws IndexOutOfBoundsException{
 		if(i < 0 || i >= this.obtenerCantidadChofer()){
 			throw new IndexOutOfBoundsException();
 		}
 		return this.choferes.get(i);
 	}	
 
-		public Taxi getTaxi(int i) throws IndexOutOfBoundsException{
+	/**
+	*Obtiene un taxi en especifico
+	*@param i indice del taxi
+	*@return 
+	* */
+	public Taxi getTaxi(int i) throws IndexOutOfBoundsException{
 		if(i < 0 || i >= this.obtenerCantidadTaxis()){
 			throw new IndexOutOfBoundsException();
 		}
@@ -190,8 +233,8 @@ public class Asociacion{
 	}	
 
 	/**
-	 * Elimina a un propietario de la lista de médicos
-	 * @param i indice del medico a eliminar 
+	 * Elimina a un propietario de la lista de propietarios
+	 * @param i indice del propietario a eliminar 
 	 */
 	public void eliminaPropietario(int i) {
 		if(i >= 0 || i < this.obtenerCantidadPropietario()){
@@ -201,7 +244,7 @@ public class Asociacion{
 
 	/**
 	 * Elimina a un propietario de la lista de médicos
-	 * @param i indice del medico a eliminar 
+	 * @param i indice del chofer a eliminar 
 	 */
 	public void eliminaChofer(int i) {
 		if(i >= 0 || i < this.obtenerCantidadChofer()){
@@ -211,7 +254,7 @@ public class Asociacion{
 
 	/**
 	 * Elimina a un propietario de la lista de médicos
-	 * @param i indice del medico a eliminar 
+	 * @param i indice del taxi a eliminar 
 	 */
 	public void eliminaTaxi(int i) {
 		if(i >= 0 || i < this.obtenerCantidadTaxis()){

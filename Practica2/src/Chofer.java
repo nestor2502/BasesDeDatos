@@ -27,10 +27,17 @@ public class Chofer extends Persona{
 		super( nombre,  direccion,  correo,  num_celular,  num_licencia,  fecha_ingreso);
 	}
 
+	/**
+	*Constructor de clase
+	* */
 	public Chofer(){
 		super();
 	}
 
+	/**
+	*Mustra informacion del chofer
+	*@return caracteristicas
+	* */
 	@Override
 	public String toString() {
 		return  this.nombre + "," + this.direccion + "," + this.correo + "," + this.num_celular + "," + this.num_licencia + "," + this.fecha_ingreso;
