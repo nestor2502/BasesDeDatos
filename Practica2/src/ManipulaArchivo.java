@@ -92,7 +92,7 @@ public class ManipulaArchivo {
 	 */
 	public String[] leeArchivo() throws ArchivoLecturaNoCreadoException {
 		//Objeto para leer linea a linea
-		Scanner input = null;
+		Scanner input ;
 		String lineas = "";
 		try {
 			//Instanciamos objeto con el archivo a leer

@@ -54,6 +54,7 @@ public class ArchivoTaxi extends ManipulaArchivo {
 	 * @return el objeto con los datos de la cadena
 	 */
 	private Taxi parseaTaxi(String cadenaTaxi) {
+		if(cadenaTaxi.length() != 0){
 		String linea[] = cadenaTaxi.trim().split(",");
         String placas = linea[0];
         String marca = linea[1];
@@ -63,7 +64,9 @@ public class ArchivoTaxi extends ManipulaArchivo {
         int puertas = Integer.parseInt(linea[5]);
         boolean tiene_llanta_refaccion = Boolean.parseBoolean(linea[6]);
         boolean sigue_activo = Boolean.parseBoolean(linea[7]);
-		return new Taxi(placas, marca, modelo, anio,cilindros,puertas,tiene_llanta_refaccion,sigue_activo);
+		return new Taxi(placas, marca, modelo, anio,cilindros,puertas,tiene_llanta_refaccion,sigue_activo);}
+		return null;
 	}
+		
 
 }

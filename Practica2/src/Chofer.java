@@ -30,4 +30,9 @@ public class Chofer extends Persona{
 	public Chofer(){
 		super();
 	}
+
+	@Override
+	public String toString() {
+		return  this.nombre + "," + this.direccion + "," + this.correo + "," + this.num_celular + "," + this.num_licencia + "," + this.fecha_ingreso;
+	}
 }

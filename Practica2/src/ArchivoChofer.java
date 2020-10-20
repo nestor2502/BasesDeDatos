@@ -64,14 +64,17 @@ public class ArchivoChofer extends ManipulaArchivo {
 	 * @return el objeto con los datos de la cadena
 	 */
 	private Chofer parseaChofer(String cadenaChofer) {
-		String linea[] = cadenaChofer.trim().split(",");
-		String nombre = linea[0];
-		String direccion = linea[1];
-		String correo = linea[2];
-		int num_celular = Integer.parseInt(linea[3]);
-		int num_licencia = Integer.parseInt(linea[4]);
-		String fecha_ingreso = linea[5];
-		return new Chofer(nombre, direccion, correo, num_celular,num_licencia,fecha_ingreso);
+		if(cadenaChofer.length() != 0){
+			String linea[] = cadenaChofer.trim().split(",");
+			String nombre = linea[0];
+			String direccion = linea[1];
+			String correo = linea[2];
+			int num_celular = Integer.parseInt(linea[3]);
+			int num_licencia = Integer.parseInt(linea[4]);
+			String fecha_ingreso = linea[5];
+			return new Chofer(nombre, direccion, correo, num_celular,num_licencia,fecha_ingreso);
+		}
+			return null;
 	}
 
 }

@@ -35,7 +35,7 @@ public class ArchivoPropietario extends ManipulaArchivo {
 	public void escribePropietario(List<Propietario> propietario) {
 		String lineaPropietario = "";
 		for (Propietario m : propietario) {
-			lineaPropietario += m + "\n";
+			lineaPropietario += m.toString() + "\n";
 		}
 		super.escribeArchivo(lineaPropietario);
 	}
@@ -62,6 +62,7 @@ public class ArchivoPropietario extends ManipulaArchivo {
 	 * @return el objeto con los datos de la cadena
 	 */
 	private Propietario parseaPropietario(String cadenaPropietario) {
+		if(cadenaPropietario.length() != 0){
 		String linea[] = cadenaPropietario.trim().split(",");
 
 		String nombre = linea[0];
@@ -72,8 +73,9 @@ public class ArchivoPropietario extends ManipulaArchivo {
 		String fecha_ingreso = linea[5];
 		String rfc = linea[6];
 		boolean es_chofer = Boolean.parseBoolean(linea[7]);
-		return new Propietario(nombre, direccion, correo, num_celular,num_licencia, fecha_ingreso, rfc, es_chofer);
+		return new Propietario(nombre, direccion, correo, num_celular,num_licencia, fecha_ingreso, rfc, es_chofer);}
+		return null;
 	}
- 
+	
 
 }

@@ -227,4 +227,10 @@ public class Taxi{
     public void setSigueActivo(boolean sigue_activo){
         this.sigue_activo=sigue_activo;
     }
+
+    @Override
+	public String toString() {
+        return this.placas+ "," +this.marca+ "," + this.modelo+ "," + this.anio+ "," + this.cilindros+ "," + this.puertas+ "," + this.tiene_llanta_refaccion+ "," + this.sigue_activo;
+		
+	}
 }
