@@ -14,7 +14,7 @@ public class Taxi{
     private boolean sigue_activo;
 
     /**
-     * Constructor de la clase Taxi
+     * Constructor de la clase Taxi que pide cada atributo
      */
     public Taxi (String placas,String marca, String modelo, int anio, 
             int cilindros,int puertas, boolean tiene_llanta_refaccion){
@@ -26,6 +26,74 @@ public class Taxi{
         this.puertas=puertas;
         this.tiene_llanta_refaccion=tiene_llanta_refaccion;
     }
+
+    /**
+	 * Constructor por omision
+	 */
+	public Taxi() {
+		pideDatos();
+	}
+
+	/**
+	 * Metodo que pide datos para inicializar la clase
+	 */
+	private void pideDatos() {
+		input = new Scanner(System.in);
+		boolean bandera = true;
+		System.out.println("Ingresa placas:");
+        this.placas = input.nextLine();
+        System.out.println("Ingresa marca:");
+		this.marca = input.nextLine();
+		System.out.println("Ingresa modelo:");
+        this.modelo = input.nextLine();
+        do {
+			try {
+				System.out.println("Ingresa año:");
+				this.anio = input.nextInt();
+				bandera = false;
+			} catch (InputMismatchException e) {
+				input.next();
+				bandera = true;
+			}
+        } while (bandera);
+        do {
+			try {
+				System.out.println("Ingresa número de cilindros:");
+				this.cilindros = input.nextInt();
+				bandera = false;
+			} catch (InputMismatchException e) {
+				input.next();
+				bandera = true;
+			}
+        } while (bandera);
+        do {
+			try {
+				System.out.println("Ingresa número de puertas:");
+				this.puertas = input.nextInt();
+				bandera = false;
+			} catch (InputMismatchException e) {
+				input.next();
+				bandera = true;
+			}
+        } while (bandera);
+        do{
+            System.out.println("¿El taxi tiene llanta de refacción? (S/N) :");
+            if (input.next().charAt(0) == 'S' || input.next().charAt(0) == 's' ){
+                this.tiene_llanta_refaccion = true;
+            }
+            else if (input.next().charAt(0) == 'N'|| input.next().charAt(0) == 'n'){
+                this.tiene_llanta_refaccion=false;
+            }
+        } while (input.next().charAt(0) != 'S' || input.next().charAt(0) != 's' ||
+        input.next().charAt(0) != 'N' || input.next().charAt(0) != 'n');
+    }
+    
+    /**
+     * Método que permite editar datos
+     */
+    public void edita() {
+		this.pideDatos();
+	}
 
     /**
      * Método getter de las placas del taxi

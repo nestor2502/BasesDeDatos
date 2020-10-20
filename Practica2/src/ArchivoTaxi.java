@@ -1,4 +1,4 @@
-package repository;
+package src;
 
 import src.ArchivoLecturaNoCreadoException;
 import src.Taxi;
@@ -11,7 +11,7 @@ import src.ManipulaArchivo;
  */
 public class ArchivoTaxi extends ManipulaArchivo {
 	public ArchivoTaxi() {
-		// coustrimos un file llamado taxis, para poder editar
+		// construimos un file llamado taxis, para poder editar
 		super("taxis.csv");
 	}
 
