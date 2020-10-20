@@ -17,7 +17,7 @@ public class Taxi{
      * Constructor de la clase Taxi que pide cada atributo
      */
     public Taxi (String placas,String marca, String modelo, int anio, 
-            int cilindros,int puertas, boolean tiene_llanta_refaccion){
+            int cilindros,int puertas, boolean tiene_llanta_refaccion, boolean sigue_activo){
         this.placas=placas;
         this.marca=marca;
         this.modelo=modelo;
@@ -25,6 +25,7 @@ public class Taxi{
         this.cilindros=cilindros;
         this.puertas=puertas;
         this.tiene_llanta_refaccion=tiene_llanta_refaccion;
+        this.sigue_activo = sigue_activo;
     }
 
     /**
@@ -86,6 +87,26 @@ public class Taxi{
             }
         } while (input.next().charAt(0) != 'S' || input.next().charAt(0) != 's' ||
         input.next().charAt(0) != 'N' || input.next().charAt(0) != 'n');
+    
+        input = new Scanner(System.in);
+		boolean bandera = true;
+		do {
+			try {
+				input = new Scanner(System.in);
+				System.out.println("sigue activo? 1.- Si, 2.- No");
+				int seleccion= input.nextInt();
+				if(seleccion == 1 || seleccion == 2){
+					if(seleccion == 1) this.sigue_activo = true;
+					else this.sigue_activo = false;
+					bandera = false;
+				}
+				else
+					bandera = true;
+			} catch (InputMismatchException e) {
+				input.next();
+				bandera = true;
+			}
+		} while (bandera);
     }
     
     /**
