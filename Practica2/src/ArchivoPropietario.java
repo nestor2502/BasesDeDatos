@@ -43,12 +43,12 @@ public class ArchivoPropietario extends ManipulaArchivo {
 	 * @return arreglo de Propietario con los datos del archivo
 	 * @throws ArchivoLecturaNoCreadoException
 	 */
-	public Propietario[] leePropietario() throws ArchivoLecturaNoCreadoException {
+	public Propietario[] leePropietarios() throws ArchivoLecturaNoCreadoException {
 		String lineas[] = super.leeArchivo();
 		Propietario propietarios[] = new Propietario[lineas.length];
 		for (int i = 0; i < propietarios.length; i++) {
 			if (!lineas[i].equals("null")) {
-				medicos[i] = this.parseaMedico(lineas[i]);
+				propietarios[i] = this.parseaPropietario(lineas[i]);
 			}
 		}
 		return propietarios;
@@ -59,14 +59,18 @@ public class ArchivoPropietario extends ManipulaArchivo {
 	 * @param cadenaPropietario la cadena a parsear 
 	 * @return el objeto con los datos de la cadena
 	 */
-	private Propietario parseaMedico(String cadenaPropietario) {
-		String linea[] = cadenaMedico.trim().split(",");
+	private Propietario parseaPropietario(String cadenaPropietario) {
+		String linea[] = cadenaPropietario.trim().split(",");
+
 		String nombre = linea[0];
-		int direccion = Integer.parseInt(linea[1]);
-		char correo = linea[2].charAt(0);
+		String direccion = linea[1];
+		String correo = linea[2];
 		int num_celular = Integer.parseInt(linea[3]);
-		String especialidad = linea[4];
-		return new Medico(nombre, direccion, correo, idMedico,especialidad,null);
+		int num_licencia = Integer.parseInt(linea[4]);
+		String fecha_ingreso = linea[5];
+		String rfc = linea[6];
+		boolean es_chofer = Boolean.parseBoolean(linea[7]);
+		return new Medico(nombre, direccion, correo, num_celular,num_licencia, fecha_ingreso, rfc, es_chofer);
 	}
  
 
