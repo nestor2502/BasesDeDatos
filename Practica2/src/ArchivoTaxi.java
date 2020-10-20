@@ -3,6 +3,9 @@ package src;
 import src.ArchivoLecturaNoCreadoException;
 import src.Taxi;
 import src.ManipulaArchivo;
+import java.util.List;
+import java.util.ArrayList;
+
 
 /**
  * ArchivoTaxi.java Clase encargada de leer/escribir objetos de la clase Taxi
@@ -21,7 +24,7 @@ public class ArchivoTaxi extends ManipulaArchivo {
 	 * @param taxi
 	 *            los taxis que se desean guardar
 	 */
-	public void escribeTaxi(Taxi taxi[]) {
+	public void escribeTaxi(List<Taxi> taxi) {
 		String lineaTaxi = "";
 		for (Taxi m : taxi) {
 			lineaTaxi += m + "\n";
@@ -34,12 +37,12 @@ public class ArchivoTaxi extends ManipulaArchivo {
 	 * @return arreglo de Taxi con los datos del archivo
 	 * @throws ArchivoLecturaNoCreadoException
 	 */
-	public Taxi[] leeTaxis() throws ArchivoLecturaNoCreadoException {
+	public List<Taxi> leeTaxis() throws ArchivoLecturaNoCreadoException {
 		String lineas[] = super.leeArchivo();
-		Taxi taxis[] = new Taxi[lineas.length];
-		for (int i = 0; i < taxis.length; i++) {
+		List<Taxi> taxis = new ArrayList <Taxi> ();
+		for (int i = 0; i < lineas.length; i++) {
 			if (!lineas[i].equals("null")) {
-				taxis[i] = this.parseaTaxi(lineas[i]);
+				taxis.add(parseaTaxi(lineas[i]));
 			}
 		}
 		return taxis;
@@ -59,7 +62,8 @@ public class ArchivoTaxi extends ManipulaArchivo {
         int cilindros = Integer.parseInt(linea[4]);
         int puertas = Integer.parseInt(linea[5]);
         boolean tiene_llanta_refaccion = Boolean.parseBoolean(linea[6]);
-		return new Taxi(placas, marca, modelo, anio,cilindros,puertas,tiene_llanta_refaccion);
+        boolean sigue_activo = Boolean.parseBoolean(linea[7]);
+		return new Taxi(placas, marca, modelo, anio,cilindros,puertas,tiene_llanta_refaccion,sigue_activo);
 	}
 
 }

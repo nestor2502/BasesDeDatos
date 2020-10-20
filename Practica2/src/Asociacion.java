@@ -2,17 +2,19 @@ package src;
 
 import java.util.List;
 import java.util.ArrayList;
-import exception.ArchivoLecturaNoCreadoException;
+import src.ArchivoLecturaNoCreadoException;
+import src.Chofer;
+import src.Taxi;
+import src.Propietario;
 
 
-class Asociacion{
+public class Asociacion{
 
-	private List<Propietario> propietarios; = new ArrayList<Propietario>();
-	private List<Chofer> choferes; = new ArrayList<Chofer>();
-	private List<Taxi> taxis;= new ArrayList<Taxi>();
+	private List<Propietario> propietarios = new ArrayList<Propietario>();
+	private List<Chofer> choferes = new ArrayList<Chofer>();
+	private List<Taxi> taxis= new ArrayList<Taxi>();
 
 	public Asociacion(){
-
 	propietarios = new ArrayList<Propietario>();
 	choferes = new ArrayList<Chofer>();
 	taxis= new ArrayList<Taxi>();
@@ -24,17 +26,16 @@ class Asociacion{
 		}catch(ArchivoLecturaNoCreadoException e){
 			System.out.println(e.getMessage());
 		}	
-	}
 
-	ArchivoChofer archivoChofer = new ArchivoChofer(){
+	ArchivoChofer archivoChofer = new ArchivoChofer();
 		try{
 			System.out.println("Leyendo datos....");
 			choferes = archivoChofer.leeChofer();
 			System.out.println("Datos leidos....");
 		}catch(ArchivoLecturaNoCreadoException e){
 			System.out.println(e.getMessage());
-		}	
-	}
+		}
+			
 	ArchivoTaxi archivoTaxi = new ArchivoTaxi();
 		try{
 			System.out.println("Leyendo datos....");
@@ -42,15 +43,15 @@ class Asociacion{
 			System.out.println("Datos leidos....");
 		}catch(ArchivoLecturaNoCreadoException e){
 			System.out.println(e.getMessage());
-		}	
-	}
+		}
+	}	
 
 	public void agregaPropietario(Propietario propietario){
 		this.propietarios.add(propietario);
 	}
 
-	public void agregaChofer(Propietario propietario){
-		this.choferes.add(propietario);
+	public void agregaChofer(Chofer chofer){
+		this.choferes.add(chofer);
 	}
 
 	public void agregaTaxi(Taxi taxi){
@@ -62,7 +63,7 @@ class Asociacion{
 	 */
 	public void guardaPropietarios(){
 		ArchivoPropietario archivoP = new ArchivoPropietario();
-		archivoP.escribeMedico(this.propietarios);
+		archivoP.escribePropietario(this.propietarios);
 	}
 
 	/**
@@ -70,7 +71,7 @@ class Asociacion{
 	 */
 	public void guardaChoferes(){
 		ArchivoChofer archivoC = new ArchivoChofer();
-		archivoC.escribeMedico(this.Choferes);
+		archivoC.escribeChofer(this.choferes);
 	}
 
 	/**
@@ -78,7 +79,7 @@ class Asociacion{
 	 */
 	public void guardaTaxis(){
 		ArchivoTaxi archivoT = new ArchivoTaxi();
-		archivoT.escribeMedico(this.Taxis);
+		archivoT.escribeTaxi(this.taxis);
 	}
 
 	/**
@@ -114,7 +115,7 @@ class Asociacion{
 		int i = 0;
 		for(Propietario propietario: this.propietarios){
 			if(propietario != null){
-				propietariosString += i + " - Nombre: " + propietarios.getNombre() + " Direccion:" + propietarios.getEspecialidad() + "Correo: " +propietarios.getCorreo()+ "Num.Cel: "+ propietarios.getCelular()+" Num.Lic: "+propietarios.getLicencia()+" RFC: "+propietarios.getRFC()+" Fecha-Ingreso:"+propietarios.getFechaIngreso()+"\n";
+				propietariosString += i + " - Nombre: " + propietario.getNombre() + " Direccion:" + propietario.getDireccion() + "Correo: " +propietario.getCorreo()+ "Num.Cel: "+ propietario.getCelular()+" Num.Lic: "+propietario.getLicencia()+" RFC: "+propietario.getRFC()+" Fecha-Ingreso:"+propietario.getFechaIngreso()+"\n";
 				i++;
 			}
 		}
@@ -130,11 +131,11 @@ class Asociacion{
 		int i = 0;
 		for(Chofer chofer: this.choferes){
 			if(chofer != null){
-				choferString += i + " - Nombre: " + choferes.getNombre() + " Direccion:" + choferes.getEspecialidad() + "Correo: " +choferes.getCorreo()+ "Num.Cel: "+ choferes.getCelular()+" Num.Lic: "+choferes.getLicencia()+" Fecha-Ingreso:"+choferes.getFechaIngreso()+"\n";
+				choferesString += i + " - Nombre: " + chofer.getNombre() + " Direccion:" + chofer.getDireccion() + "Correo: " +chofer.getCorreo()+ "Num.Cel: "+ chofer.getCelular()+" Num.Lic: "+chofer.getLicencia()+" Fecha-Ingreso:"+chofer.getFechaIngreso()+"\n";
 				i++;
 			}
 		}
-		return choferString;
+		return choferesString;
 	}
 
 	/**
@@ -146,7 +147,7 @@ class Asociacion{
 		int i = 0;
 		for(Taxi taxi: this.taxis){
 			if(taxi != null){
-				taxiString += i + " - Placas: " + taxis.getPlacas() + " Marca:" + taxis.getMarca() + "Modelo: " +taxis.getModelo()+ "Año: "+ taxis.getAnio()+" Num. Cilindros: "+taxis.getCilindros()+" Num. Puertas:"+taxis.getPuertas()+" LLanta refaccion: "+ taxis.getTieneLlantaRefaccion()+" Sigue activo: "+taxis.getSigueactivo()+"\n";
+				taxisString += i + " - Placas: " + taxi.getPlacas() + " Marca:" + taxi.getMarca() + "Modelo: " +taxi.getModelo()+ "Año: "+ taxi.getAnio()+" Num. Cilindros: "+taxi.getCilindros()+" Num. Puertas:"+taxi.getPuertas()+" LLanta refaccion: "+ taxi.getTieneLlantaRefaccion()+" Sigue activo: "+taxi.getSigueActivo()+"\n";
 				i++;
 			}
 		}
@@ -167,23 +168,23 @@ class Asociacion{
 		return this.taxis;
 	}
 
-	public Propietario getPropietario(int i) throws ExcesoMedicoException{
+	public Propietario getPropietario(int i) throws IndexOutOfBoundsException{
 		if(i < 0 || i >= this.obtenerCantidadPropietario()){
-			throw new ExcesoMedicoException("model.Medico seleccionado incorrectamente");
+			throw new IndexOutOfBoundsException();
 		}
 		return this.propietarios.get(i);
 	}	
 
-		public Choferes getPropietario(int i) throws ExcesoMedicoException{
+		public Chofer getChofer(int i) throws IndexOutOfBoundsException{
 		if(i < 0 || i >= this.obtenerCantidadChofer()){
-			throw new ExcesoMedicoException("model.Medico seleccionado incorrectamente");
+			throw new IndexOutOfBoundsException();
 		}
 		return this.choferes.get(i);
 	}	
 
-		public Propietario getTaxis(int i) throws ExcesoMedicoException{
+		public Taxi getTaxi(int i) throws IndexOutOfBoundsException{
 		if(i < 0 || i >= this.obtenerCantidadTaxis()){
-			throw new ExcesoMedicoException("model.Medico seleccionado incorrectamente");
+			throw new IndexOutOfBoundsException();
 		}
 		return this.taxis.get(i);
 	}	
@@ -192,7 +193,7 @@ class Asociacion{
 	 * Elimina a un propietario de la lista de médicos
 	 * @param i indice del medico a eliminar 
 	 */
-	public void eliminaPropietarios(int i) {
+	public void eliminaPropietario(int i) {
 		if(i >= 0 || i < this.obtenerCantidadPropietario()){
 			this.propietarios.remove(0);
 		}
@@ -202,7 +203,7 @@ class Asociacion{
 	 * Elimina a un propietario de la lista de médicos
 	 * @param i indice del medico a eliminar 
 	 */
-	public void eliminaChoferes(int i) {
+	public void eliminaChofer(int i) {
 		if(i >= 0 || i < this.obtenerCantidadChofer()){
 			this.choferes.remove(0);
 		}
@@ -212,12 +213,10 @@ class Asociacion{
 	 * Elimina a un propietario de la lista de médicos
 	 * @param i indice del medico a eliminar 
 	 */
-	public void eliminatAXI(int i) {
+	public void eliminaTaxi(int i) {
 		if(i >= 0 || i < this.obtenerCantidadTaxis()){
 			this.taxis.remove(0);
 		}
 	}
-
-
 
 }

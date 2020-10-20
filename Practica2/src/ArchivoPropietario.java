@@ -1,10 +1,12 @@
 package src;
 
-import ArchivoLecturaNoCreadoException;
-import ManipulaArchivo;
-import Persona;
-import Chofer;
-import Taxi;
+import src.ArchivoLecturaNoCreadoException;
+import src.ManipulaArchivo;
+import src.Persona;
+import src.Chofer;
+import src.Taxi;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * repository.ArchivoMedico.java Clase encargada de leer/escribir objetos de la clase
@@ -20,7 +22,7 @@ public class ArchivoPropietario extends ManipulaArchivo {
 	*Constructor de la clase
 	*@param tipo 0:propietario 1:chofer
 	*/
-	public ArchivoPropietario(int tipo) {
+	public ArchivoPropietario() {
 		super("propietarios.csv");
 	}
 	
@@ -30,7 +32,7 @@ public class ArchivoPropietario extends ManipulaArchivo {
 	 * @param propietario
 	 *            los propietarios que se desean guardar
 	 */
-	public void escribePropietario(Propietario propietario[]) {
+	public void escribePropietario(List<Propietario> propietario) {
 		String lineaPropietario = "";
 		for (Propietario m : propietario) {
 			lineaPropietario += m + "\n";
@@ -43,12 +45,12 @@ public class ArchivoPropietario extends ManipulaArchivo {
 	 * @return arreglo de Propietario con los datos del archivo
 	 * @throws ArchivoLecturaNoCreadoException
 	 */
-	public Propietario[] leePropietarios() throws ArchivoLecturaNoCreadoException {
+	public List<Propietario> leePropietarios() throws ArchivoLecturaNoCreadoException {
 		String lineas[] = super.leeArchivo();
-		Propietario propietarios[] = new Propietario[lineas.length];
-		for (int i = 0; i < propietarios.length; i++) {
+		List<Propietario> propietarios = new ArrayList <Propietario>();
+		for (int i = 0; i < lineas.length; i++) {
 			if (!lineas[i].equals("null")) {
-				propietarios[i] = this.parseaPropietario(lineas[i]);
+				propietarios.add(parseaPropietario(lineas[i]));
 			}
 		}
 		return propietarios;
@@ -70,7 +72,7 @@ public class ArchivoPropietario extends ManipulaArchivo {
 		String fecha_ingreso = linea[5];
 		String rfc = linea[6];
 		boolean es_chofer = Boolean.parseBoolean(linea[7]);
-		return new Medico(nombre, direccion, correo, num_celular,num_licencia, fecha_ingreso, rfc, es_chofer);
+		return new Propietario(nombre, direccion, correo, num_celular,num_licencia, fecha_ingreso, rfc, es_chofer);
 	}
  
 

@@ -1,9 +1,11 @@
+package src;
+
 import src.*;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class PruebaHospital {
+public class PruebaAsociacion {
 	public static void main(String[] args) {
 		boolean bandera;
 		int opcion = 0;
@@ -39,16 +41,16 @@ public class PruebaHospital {
                                 asociacion.agregaChofer(propietario.convierteAChofer());
                             break;
                         case 2:
-                            System.out.println(asociacion.toStringPropetarios());
+                            System.out.println(asociacion.listadoPropietarios());
                             break;
                         case 3:
                             System.out.println("Elige el número del propietario que deseas editar");
                             bandera = true;
                             do {
                                 try {
-                                    System.out.println(hospital.listadoPropietarios());
+                                    System.out.println(asociacion.listadoPropietarios());
                                     opcion = input.nextInt();
-                                    hospital.getPropietario(opcion).edita();
+                                    asociacion.getPropietario(opcion).edita();
                                     bandera = false;
                                     System.out.println("Propietario editado correctamente");
                                 } catch (InputMismatchException i) {
@@ -78,8 +80,9 @@ public class PruebaHospital {
                             break;
                         default:
                             break;
-                            }
+                        }
                     break;
+                    }
 				case 2:
 					System.out.println("Selecciona una acción.\n" + "1- Agregar\n" + 
                     "2- Consultar\n" + "3- Modificar\n" + "4- Eliminar\n" );
@@ -96,16 +99,16 @@ public class PruebaHospital {
                             asociacion.agregaChofer(chofer);
                             break;
                         case 2:
-                            System.out.println(asociacion.toStringChoferes());
+                            System.out.println(asociacion.listadoChoferes());
                             break;
                         case 3:
                             System.out.println("Elige el número del chófer que deseas editar");
                             bandera = true;
                             do {
                                 try {
-                                    System.out.println(hospital.listadoChoferes());
+                                    System.out.println(asociacion.listadoChoferes());
                                     opcion = input.nextInt();
-                                    hospital.getChofer(opcion).edita();
+                                    asociacion.getChofer(opcion).edita();
                                     bandera = false;
                                     System.out.println("Chófer editado correctamente");
                                 } catch (InputMismatchException i) {
@@ -136,7 +139,7 @@ public class PruebaHospital {
                             break;
                         default:
                             break;
-                            }
+                        }
                     }
                     break;
 				case 3:
@@ -155,16 +158,16 @@ public class PruebaHospital {
                             asociacion.agregaTaxi(taxi);
                             break;
                         case 2:
-                            System.out.println(asociacion.toStringTaxis());
+                            System.out.println(asociacion.listadoTaxis());
                             break;
                         case 3:
                         System.out.println("Elige el número del taxi que deseas editar");
                         bandera = true;
                         do {
                             try {
-                                System.out.println(hospital.listadoTaxis());
+                                System.out.println(asociacion.listadoTaxis());
                                 opcion = input.nextInt();
-                                hospital.getTaxi(opcion).edita();
+                                asociacion.getTaxi(opcion).edita();
                                 bandera = false;
                                 System.out.println("Propietario editado correctamente");
                             } catch (InputMismatchException i) {
@@ -182,7 +185,7 @@ public class PruebaHospital {
                                 try {
                                     System.out.println(asociacion.listadoTaxis());
                                     opcion = input.nextInt();
-                                    hospital.eliminaTaxi(opcion);
+                                    asociacion.eliminaTaxi(opcion);
                                     bandera = false;
                                 } catch (InputMismatchException i) {
                                     System.out.println("Ingresa un número como opción");
@@ -208,8 +211,9 @@ public class PruebaHospital {
 					break;
 				default:
 					break;
-				}
-			}
-		} while (bandera);
-	}
+				    }
+                
+            }
+        } while (bandera);
+    }
 }

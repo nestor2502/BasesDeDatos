@@ -1,10 +1,13 @@
 package src;
 
-import ArchivoLecturaNoCreadoException;
-import ManipulaArchivo;
-import Persona;
-import Chofer;
-import Taxi;
+import src.ArchivoLecturaNoCreadoException;
+import src.ManipulaArchivo;
+import src.Persona;
+import src.Chofer;
+import src.Taxi;
+import java.util.List;
+import java.util.ArrayList;
+
 
 /**
  * repository.ArchivoMedico.java Clase encargada de leer/escribir objetos de la clase
@@ -31,7 +34,7 @@ public class ArchivoChofer extends ManipulaArchivo {
 	 * @param chofer
 	 *            los chofers que se desean guardar
 	 */
-	public void escribeChofer(Chofer chofer[]) {
+	public void escribeChofer(List<Chofer> chofer) {
 		String lineaChofer = "";
 		for (Chofer m : chofer) {
 			lineaChofer += m + "\n";
@@ -44,12 +47,12 @@ public class ArchivoChofer extends ManipulaArchivo {
 	 * @return arreglo de model.Chofer con los datos del archivo
 	 * @throws ArchivoLecturaNoCreadoException
 	 */
-	public Chofer[] leeChoferes() throws ArchivoLecturaNoCreadoException {
+	public List<Chofer> leeChofer() throws ArchivoLecturaNoCreadoException {
 		String lineas[] = super.leeArchivo();
-		Chofer choferes[] = new Chofer[lineas.length];
-		for (int i = 0; i < choferes.length; i++) {
+		List<Chofer> choferes = new ArrayList <Chofer>();
+		for (int i = 0; i < lineas.length; i++) {
 			if (!lineas[i].equals("null")) {
-				choferes[i] = this.parseaChofer(lineas[i]);
+				choferes.add(parseaChofer(lineas[i])) ;
 			}
 		}
 		return choferes;

@@ -37,9 +37,10 @@ public class Persona{
 	*Constructor de la clase persona
 	*/
 	public Persona(){
-		pideDatos()
+		pideDatos();
 	}	
 	public void pideDatos(){
+		Scanner input;
 		input = new Scanner(System.in);
 		System.out.println("Ingresa nombre:");
 		this.nombre = input.nextLine();
@@ -54,7 +55,7 @@ public class Persona{
 
 		input = new Scanner(System.in);
 		System.out.println("Ingresa nn numero celular");
-		this.num_celular = input.nextLine();
+		this.num_celular = input.nextInt();
 
 		input = new Scanner(System.in);
 		boolean bandera = true;
@@ -71,7 +72,6 @@ public class Persona{
 		} while (bandera);
 
 		input = new Scanner(System.in);
-		boolean bandera = true;
 		do {
 			try {
 				input = new Scanner(System.in);
@@ -96,6 +96,11 @@ public class Persona{
 			}
 		} while (bandera);
 	}
+
+	public void edita(){
+		pideDatos();
+	}
+
 	/**
 	*Metodo que obtiene el nombre
 	*@return nombre

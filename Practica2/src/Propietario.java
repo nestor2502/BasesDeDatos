@@ -34,6 +34,7 @@ public class Propietario extends Persona{
 
 	public Propietario(){
 		super();
+		Scanner input;
 		input = new Scanner(System.in);
 		System.out.println("Ingresa el RFC");
 		this.rfc = input.nextLine();
@@ -60,10 +61,25 @@ public class Propietario extends Persona{
 
 	}
 
-	public Chofer convierteChofer(){
-		Chofer chofer = new Chofer(nombre, direccion, correo, num_celular, num_licencia, fecha_ingreso, es_chofer)
+	public Chofer convierteAChofer(){
+		Chofer chofer = new Chofer(nombre, direccion, correo, num_celular, num_licencia, fecha_ingreso);
 		return chofer;
 	}
 
+	public String getRFC(){
+		return this.rfc;
+	}
+
+	public void setRFC(String rfc){
+		this.rfc=rfc;
+	}
+
+	public boolean getEsChofer(){
+		return this.es_chofer;
+	}
+
+	public void setEsChofer(boolean es_chofer){
+		this.es_chofer=es_chofer;
+	}
 
 }

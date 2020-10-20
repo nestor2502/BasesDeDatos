@@ -1,4 +1,6 @@
 package src;
+import java.util.Scanner;
+import java.util.InputMismatchException;
 
 /**
  * Clase que modela a un Taxi en la asociación
@@ -39,6 +41,7 @@ public class Taxi{
 	 * Metodo que pide datos para inicializar la clase
 	 */
 	private void pideDatos() {
+        Scanner input;
 		input = new Scanner(System.in);
 		boolean bandera = true;
 		System.out.println("Ingresa placas:");
@@ -89,7 +92,7 @@ public class Taxi{
         input.next().charAt(0) != 'N' || input.next().charAt(0) != 'n');
     
         input = new Scanner(System.in);
-		boolean bandera = true;
+		bandera = true;
 		do {
 			try {
 				input = new Scanner(System.in);
@@ -200,7 +203,7 @@ public class Taxi{
     /**
      * Método getter de si tiene llanta de refacción el taxi
      */
-    public String getTieneLlantaRefaccion(){
+    public boolean getTieneLlantaRefaccion(){
         return tiene_llanta_refaccion;
     }
 
@@ -214,7 +217,7 @@ public class Taxi{
     /**
      * Método getter de si está activo el taxi
      */
-    public String getSigueActivo(){
+    public boolean getSigueActivo(){
         return sigue_activo;
     }
 
