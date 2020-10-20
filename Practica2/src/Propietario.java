@@ -4,6 +4,10 @@ import src.Chofer;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
+/**
+ * Clase que modela a un propietario de taxis en la asociación
+ * @author nestor vazquez
+ */
 public class Propietario extends Persona{
 
 
@@ -12,14 +16,14 @@ public class Propietario extends Persona{
 
 
 	/**
-	*Constructor de la clase persona
-	*@param nombre
-	*@param direccion
-	*@param correo 
-	*@param num_celular
-	*@param num_licencia
-	*@param fecha_ingreso
-	*@param es_chofer 
+	*Constructor de la clase propietario con parámetros de entrada
+	*@param nombre  Nombre del propietario
+	*@param direccion Dirección del propietario
+	*@param correo Correo del propietario
+	*@param num_celular Número de celular del propietario
+	*@param num_licencia Número de licencia de conducir del propietario
+	*@param fecha_ingreso Fecha de ingreso a la asociación del propietario
+	*@param es_chofer  Booleano que establece si el propietario también es chófer
 	*/
 	public Propietario(String nombre, String direccion, String correo, int num_celular, int num_licencia, String fecha_ingreso, String rfc, boolean es_chofer){
 		super( nombre,  direccion,  correo,  num_celular,  num_licencia,  fecha_ingreso);
@@ -27,6 +31,9 @@ public class Propietario extends Persona{
 		this.es_chofer = es_chofer;
 	}
 
+	/**
+	 * Constructor por defecto, que pide datos adicionales propios de un propietario de taxis
+	 */
 	public Propietario(){
 		super();
 		Scanner input;
@@ -56,23 +63,42 @@ public class Propietario extends Persona{
 
 	}
 
+	/**
+	 * Método que toma a un propietario y construye a un objeto Chofer adaptando sus atributos
+	 */
 	public Chofer convierteAChofer(){
 		Chofer chofer = new Chofer(nombre, direccion, correo, num_celular, num_licencia, fecha_ingreso);
 		return chofer;
 	}
 
+	/**
+	 * Método que obtiene el RFC del propietario
+	 * @return RFC del propietario de un taxi
+	 */
 	public String getRFC(){
 		return this.rfc;
 	}
 
+	/**
+	 * Método que establece el RFC de un propietario
+	 * @param rfc  RFC del propietario de un taxi
+	 */
 	public void setRFC(String rfc){
 		this.rfc=rfc;
 	}
 
+	/**
+	 * Método que obtiene si un propietario también es chófer de taxi
+	 * @return Booleano que establece si el propietario también es chófer
+	 */
 	public boolean getEsChofer(){
 		return this.es_chofer;
 	}
 
+	/**
+	 * Método que establece si un propietario también es chófer de taxi
+	 * @param es_chofer Booleano que establece si el propietario también es chófer
+	 */
 	public void setEsChofer(boolean es_chofer){
 		this.es_chofer=es_chofer;
 	}

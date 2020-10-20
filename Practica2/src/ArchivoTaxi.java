@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  * ArchivoTaxi.java Clase encargada de leer/escribir objetos de la clase Taxi
- * 
+ * @author jose ramirez
  * @see ManipulaArchivo
  */
 public class ArchivoTaxi extends ManipulaArchivo {
@@ -35,7 +35,7 @@ public class ArchivoTaxi extends ManipulaArchivo {
 	/**
 	 * Convierte un arreglo de String a un arreglo de taxis
 	 * @return arreglo de Taxi con los datos del archivo
-	 * @throws ArchivoLecturaNoCreadoException
+	 * @throws ArchivoLecturaNoCreadoException Excepción si al archivo csv no está creado
 	 */
 	public List<Taxi> leeTaxis() throws ArchivoLecturaNoCreadoException {
 		String lineas[] = super.leeArchivo();

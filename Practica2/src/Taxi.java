@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 
 /**
  * Clase que modela a un Taxi en la asociación
+ * @author jose ramirez
  */
 public class Taxi{
     private String placas;
@@ -17,6 +18,14 @@ public class Taxi{
 
     /**
      * Constructor de la clase Taxi que pide cada atributo
+     * @param placas Placas del taxi
+     * @param marca Marca del taxi
+     * @param modelo Modelo del taxi
+     * @param anio Año del taxi
+     * @param cilindros Número de cilindros del taxi
+     * @param puertas Número de puertas del taxi
+     * @param tiene_llanta_refaccion Booleano que indica si el taxi cuenta con llanta de refacción
+     * @param sigue_activo Booleano que indica si el taxi sigue activo en la asociación
      */
     public Taxi (String placas,String marca, String modelo, int anio, 
             int cilindros,int puertas, boolean tiene_llanta_refaccion, boolean sigue_activo){
@@ -52,7 +61,7 @@ public class Taxi{
         this.modelo = input.nextLine();
         do {
 			try {
-				System.out.println("Ingresa anio:");
+				System.out.println("Ingresa año:");
 				this.anio = input.nextInt();
 				bandera = false;
 			} catch (InputMismatchException e) {
@@ -62,7 +71,7 @@ public class Taxi{
         } while (bandera);
         do {
 			try {
-				System.out.println("Ingresa numero de cilindros:");
+				System.out.println("Ingresa número de cilindros:");
 				this.cilindros = input.nextInt();
 				bandera = false;
 			} catch (InputMismatchException e) {
@@ -72,7 +81,7 @@ public class Taxi{
         } while (bandera);
         do {
 			try {
-				System.out.println("Ingresa numero de puertas:");
+				System.out.println("Ingresa número de puertas:");
 				this.puertas = input.nextInt();
 				bandera = false;
 			} catch (InputMismatchException e) {
@@ -80,19 +89,16 @@ public class Taxi{
 				bandera = true;
 			}
         } while (bandera);
-        int bander_tem = 0;
         do{
-            System.out.println("¿El taxi tiene llanta de refaccion? (S/N) :");
-            char x = input.next().charAt(0);
-            if (x == 'S' || x == 's' ){
+            System.out.println("¿El taxi tiene llanta de refacción? (S/N) :");
+            if (input.next().charAt(0) == 'S' || input.next().charAt(0) == 's' ){
                 this.tiene_llanta_refaccion = true;
-                bander_tem = 1;
             }
-            else if (x == 'N'|| x == 'n'){
+            else if (input.next().charAt(0) == 'N'|| input.next().charAt(0) == 'n'){
                 this.tiene_llanta_refaccion=false;
-                bander_tem = 1;
             }
-        } while (bander_tem == 0);
+        } while (input.next().charAt(0) != 'S' || input.next().charAt(0) != 's' ||
+        input.next().charAt(0) != 'N' || input.next().charAt(0) != 'n');
     
         input = new Scanner(System.in);
 		bandera = true;
@@ -124,17 +130,23 @@ public class Taxi{
 
     /**
      * Método getter de las placas del taxi
+     * @return Placas del taxi
      */
     public String getPlacas(){
         return placas;
     }
 
+    /**
+     * Método que establece las placas del taxi
+     * @param placas Placas a quedar en el taxi
+     */
     public void setPlacas(String placas){
         this.placas=placas;
     }
 
     /**
      * Método getter de la marca del taxi
+     * @return Marca del taxi
      */
     public String getMarca(){
         return marca;
@@ -142,6 +154,7 @@ public class Taxi{
 
     /**
      * Método setter para la marca del taxi
+     * @param marca Marca del taxi
      */
     public void setMarca(String marca){
         this.marca=marca;
@@ -149,6 +162,7 @@ public class Taxi{
 
     /**
      * Método getter del modelo del taxi
+     * @return Modelo del taxi
      */
     public String getModelo(){
         return modelo;
@@ -156,6 +170,7 @@ public class Taxi{
 
     /**
      * Método setter para el modelo del taxi
+     * @param modelo Modelo del taxi
      */
     public void setModelo(String modelo){
         this.modelo=modelo;
@@ -163,6 +178,7 @@ public class Taxi{
 
     /**
      * Método getter del año del taxi
+     * @return Año del taxi
      */
     public int getAnio(){
         return anio;
@@ -170,6 +186,7 @@ public class Taxi{
 
     /**
      * Método setter para el año del taxi
+     * @param anio Año del taxi
      */
     public void setAnio(int anio){
         this.anio=anio;
@@ -177,6 +194,7 @@ public class Taxi{
 
     /**
      * Método getter del número de cilindros del taxi
+     * @return Número de cilindros del taxi
      */
     public int getCilindros(){
         return cilindros;
@@ -184,6 +202,7 @@ public class Taxi{
 
     /**
      * Método setter para el número de cilindros del taxi
+     * @param cilindros Número de cilindros del taxi
      */
     public void setCilindros(int cilindros){
         this.cilindros=cilindros;
@@ -191,6 +210,7 @@ public class Taxi{
 
     /**
      * Método getter del número de puertas del taxi
+     * @return Número de puertas del taxi
      */
     public int getPuertas(){
         return puertas;
@@ -198,6 +218,7 @@ public class Taxi{
 
     /**
      * Método setter para el número de puertas del taxi
+     * @param puertas Número de puertas del taxi
      */
     public void setPuertas(int puertas){
         this.puertas=puertas;
@@ -205,6 +226,7 @@ public class Taxi{
 
     /**
      * Método getter de si tiene llanta de refacción el taxi
+     * @return Si el taxi tiene actualmente llanta de refacción
      */
     public boolean getTieneLlantaRefaccion(){
         return tiene_llanta_refaccion;
@@ -212,6 +234,7 @@ public class Taxi{
 
     /**
      * Método setter para la llanta de refacción el taxi
+     * @param tiene_llanta_refaccion Booleano que indica si el taxi cuenta con llanta de refacción
      */
     public void setTieneLlantaRefaccion(boolean tiene_llanta_refaccion){
         this.tiene_llanta_refaccion=tiene_llanta_refaccion;
@@ -219,6 +242,7 @@ public class Taxi{
 
     /**
      * Método getter de si está activo el taxi
+     * @return El estado del taxi en la asociación
      */
     public boolean getSigueActivo(){
         return sigue_activo;
@@ -226,6 +250,7 @@ public class Taxi{
 
     /**
      * Método setter para la llanta de refacción el taxi
+     * @param sigue_activo Booleano que indica si el taxi sigue activo en la asociación
      */
     public void setSigueActivo(boolean sigue_activo){
         this.sigue_activo=sigue_activo;
