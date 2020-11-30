@@ -9,38 +9,38 @@ SET DateStyle = ISO;                  -- formato de fechas por default YYYY-MM-D
 SET TIME ZONE LOCAL ;                 --timezone SELECT CURRENT_TIMESTAMP AS hoy;
 
 CREATE TABLE "fbd2021_1_1625".usuario(
-	"IdPersona" integer GENERATED ALWAYS AS IDENTITY NOT NULL,
-	"Nombre" varchar(15) NOT NULL,
-	"Paterno" varchar(15) NOT NULL,
-	"Materno" varchar(15) NOT NULL,
-	"Calle" varchar(30) NOT NULL,
-	"NumeroCalle" integer NOT NULL,
-	"Colonia" varchar(30) NOT NULL,
-	"Correo" varchar(30) NOT NULL,
-	"NumeroCelular" integer NOT NULL,
-	"Institucion" varchar(30) NOT NULL,
-	"EsAlumno" boolean NOT NULL,
-	"EsAcademico" boolean NOT NULL,
-	"EsTrabajador" boolean NOT NULL,
-	"PathFotografia" boolean NOT NUll,
-	CONSTRAINT "pk_usuario" PRIMARY KEY("IdPersona")
+	"id_persona" integer GENERATED ALWAYS AS IDENTITY NOT NULL,
+	"nombre" varchar(15) NOT NULL,
+	"paterno" varchar(15) NOT NULL,
+	"materno" varchar(15) NOT NULL,
+	"calle" varchar(30)  NULL,
+	"numero_calle" integer  NULL,
+	"colonia" varchar(30)  NULL,
+	"correo" varchar(30)  NULL,
+	"numero_celular" integer NULL,
+	"institucion" varchar(30) NOT NULL,
+	"es_alumno" boolean NOT NULL,
+	"es_academico" boolean NOT NULL,
+	"es_trabajador" boolean NOT NULL,
+	"path_fotografia" bytea NOT NUll,
+	CONSTRAINT "pk_usuario" PRIMARY KEY("id_persona")
 
 );
 
 CREATE TABLE "fbd2021_1_1625".horario(
-	"IdHorario" integer GENERATED ALWAYS AS IDENTITY NOT NULL,
-	"IdPersona" integer NOT NULL,
-	"Entrada" date NOT NULL,
-	"Salida" date NOT NULL,
+	"id_horario" integer GENERATED ALWAYS AS IDENTITY NOT NULL,
+	"id_persona" integer NOT NULL,
+	"entrada" date NOT NULL,
+	"salida" date NOT NULL,
 	CONSTRAINT "pk_horario" PRIMARY KEY
 	(
-		"IdHorario"
+		"id_horario"
 	),
 	CONSTRAINT "fk_usuario_horario" FOREIGN KEY
 	(
-		"IdPersona"
-	) REFERENCES usuario (
-		"IdPersona"
+		"id_persona"
+	) REFERENCES "fbd2021_1_1625".usuario (
+		"id_persona"
 	) 
 
 );
