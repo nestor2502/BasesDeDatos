@@ -18,10 +18,10 @@ CREATE DATABASE asociacion;
 CREATE ROLE asociacion LOGIN;
 
 -- root debe tener todos los provilegios
-GRANT ALL PRIVILEGES ON asociacion TO root;
+GRANT ALL PRIVILEGES ON DATABASE asociacion TO root;
 
 -- asociacion solamente tiene privilegios de lectura
-GRANT CONNECT ON asociacion to asociacion;
+GRANT CONNECT ON DATABASE asociacion to asociacion;
 
 -- Crear un esquema con cuyo nombre debe ser FBD2021-1- seguido de los
 -- últimos cuatro números de cuenta del alumno que envía la práctica. Ejem-
